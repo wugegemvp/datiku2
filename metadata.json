@@ -1,0 +1,5 @@
+{
+  "name": "LiveQuiz Tok",
+  "description": "An interactive, fast-paced trivia quiz game featuring a simulated live danmaku (comment) system, multiple categories (Olympics, Sports, History, Rap), and difficulty levels.",
+  "requestFramePermissions": []
+}
