@@ -6,7 +6,7 @@ export enum CategoryType {
   LOL = 'LOL',
   HISTORY = '历史',
   RAP = '中国说唱',
-  GENERAL_SPORTS = '综合体育',
+  TFT = '金铲铲',
   VOLLEYBALL = '排球',
   BADMINTON = '羽毛球',
   TENNIS = '网球',

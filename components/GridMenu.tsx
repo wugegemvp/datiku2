@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CategoryType } from '../types';
-import { CATEGORY_CONFIG, GENERAL_SPORTS_SUB_ITEMS, MAIN_MENU_ITEMS } from '../constants';
+import { CATEGORY_CONFIG, MAIN_MENU_ITEMS } from '../constants';
 import { audioService } from '../utils/audioService';
 
 interface GridMenuProps {
@@ -8,37 +8,35 @@ interface GridMenuProps {
 }
 
 export const GridMenu: React.FC<GridMenuProps> = ({ onSelectCategory }) => {
-  const [showSubMenu, setShowSubMenu] = useState(false);
-  const itemsToShow = showSubMenu ? GENERAL_SPORTS_SUB_ITEMS : MAIN_MENU_ITEMS;
-
   const handleClick = (cat: CategoryType) => {
     audioService.check();
-    if (cat === CategoryType.GENERAL_SPORTS && !showSubMenu) {
-      setShowSubMenu(true);
-    } else {
-      onSelectCategory(cat);
-    }
+    onSelectCategory(cat);
   };
 
   return (
     <div className="min-h-screen ios-bg flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      <div className="z-10 text-center mb-8 relative animate-[fadeIn_0.5s_ease-out]">
-        {showSubMenu && (
-          <button 
-            onClick={() => setShowSubMenu(false)} 
-            className="absolute -left-12 top-1/2 -translate-y-1/2 text-white/50 hover:text-white p-2 transition-colors"
-          >
-            ← 返回
-          </button>
-        )}
-        <h1 className="text-4xl font-black text-white tracking-tight drop-shadow-2xl mb-1 italic">
-          {showSubMenu ? '综合体育' : 'LIVE QUIZ'}
+      {/* 装饰背景光斑 */}
+      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[40%] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+      {/* 标题区域 */}
+      <div className="z-10 text-center mb-12 relative animate-[fadeIn_0.5s_ease-out]">
+        <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-600 tracking-widest filter drop-shadow-[0_2px_10px_rgba(234,179,8,0.3)] mb-3 leading-tight">
+          答题之王
         </h1>
-        <p className="text-blue-200/60 text-xs font-bold tracking-widest uppercase">Select Your Channel</p>
+        
+        {/* 装饰性副标题 */}
+        <div className="flex items-center justify-center gap-4">
+           <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-white/30"></div>
+           <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase">
+             LIVE QUIZ BATTLE
+           </p>
+           <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-white/30"></div>
+        </div>
       </div>
 
       <div className="grid grid-cols-3 gap-x-5 gap-y-8 z-10 w-full max-w-[360px] px-4">
-        {itemsToShow.map((cat, index) => {
+        {MAIN_MENU_ITEMS.map((cat, index) => {
           const config = CATEGORY_CONFIG[cat];
           return (
             <button

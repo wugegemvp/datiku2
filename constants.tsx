@@ -16,9 +16,9 @@ export const CATEGORY_CONFIG: Record<CategoryType, CategoryConfig> = {
   },
   [CategoryType.HISTORY]: { icon: <span className="text-4xl">📜</span>, bgGradient: 'from-amber-400 to-yellow-700' },
   [CategoryType.RAP]: { icon: <span className="text-4xl">🎤</span>, bgGradient: 'from-slate-700 to-black' },
-  [CategoryType.GENERAL_SPORTS]: { 
-    icon: <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Trophy.png" alt="General Sports" className="w-[75%] h-[75%] object-contain drop-shadow-lg" />, 
-    bgGradient: 'from-blue-400 to-blue-700' 
+  [CategoryType.TFT]: { 
+    icon: <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Cooking.png" alt="TFT" className="w-[75%] h-[75%] object-contain drop-shadow-lg" />, 
+    bgGradient: 'from-yellow-400 to-orange-500' 
   },
   [CategoryType.VOLLEYBALL]: { icon: <span className="text-4xl">🏐</span>, bgGradient: 'from-yellow-400 to-orange-500' },
   [CategoryType.BADMINTON]: { icon: <span className="text-4xl">🏸</span>, bgGradient: 'from-teal-400 to-emerald-600' },
@@ -31,7 +31,7 @@ export const CATEGORY_CONFIG: Record<CategoryType, CategoryConfig> = {
   [CategoryType.BILLIARDS]: { icon: <span className="text-4xl">🎱</span>, bgGradient: 'from-slate-600 to-slate-900' },
 };
 
-export const MAIN_MENU_ITEMS = [CategoryType.EXPERT, CategoryType.FOOTBALL, CategoryType.LOL, CategoryType.HISTORY, CategoryType.RAP, CategoryType.GENERAL_SPORTS];
+export const MAIN_MENU_ITEMS = [CategoryType.EXPERT, CategoryType.FOOTBALL, CategoryType.LOL, CategoryType.HISTORY, CategoryType.RAP, CategoryType.TFT];
 export const GENERAL_SPORTS_SUB_ITEMS = [CategoryType.VOLLEYBALL, CategoryType.BADMINTON, CategoryType.TENNIS, CategoryType.OLYMPICS, CategoryType.TABLE_TENNIS, CategoryType.SWIMMING, CategoryType.TRACK_AND_FIELD, CategoryType.F1, CategoryType.BILLIARDS];
 
 export const TOTAL_ROUNDS = 5;
@@ -96,11 +96,26 @@ export const MOCK_QUESTIONS: Partial<Record<CategoryType | "DEFAULT", Question[]
     { questionText: "奥运会的发源地是？", options: ["古罗马", "古希腊", "古埃及", "古巴比伦"], correctIndex: 1 }
   ],
   [CategoryType.EXPERT]: [
-    { questionText: "谁是NBA历史总得分王（截至2024年）？", options: ["乔丹", "詹姆斯", "贾巴尔", "科比"], correctIndex: 1 },
-    { questionText: "金州勇士队的主场位于？", options: ["洛杉矶", "旧金山", "奥克兰", "萨克拉门托"], correctIndex: 1 },
-    { questionText: "“黑曼巴”是谁的绰号？", options: ["奥尼尔", "艾弗森", "科比", "杜兰特"], correctIndex: 2 },
-    { questionText: "NBA一次进攻时间限制是？", options: ["24秒", "30秒", "14秒", "20秒"], correctIndex: 0 },
-    { questionText: "姚明曾效力于？", options: ["湖人", "火箭", "公牛", "马刺"], correctIndex: 1 }
+    { questionText: "NBA历史总得分王（截至2024年）是？", options: ["乔丹", "詹姆斯", "贾巴尔", "科比"], correctIndex: 1 },
+    { questionText: "金州勇士队的主场位于哪个城市？", options: ["洛杉矶", "旧金山", "奥克兰", "萨克拉门托"], correctIndex: 1 },
+    { questionText: "科比·布莱恩特的绰号是？", options: ["大鲨鱼", "答案", "黑曼巴", "飞人"], correctIndex: 2 },
+    { questionText: "NBA一次进攻的时间限制是多少秒？", options: ["24秒", "30秒", "35秒", "20秒"], correctIndex: 0 },
+    { questionText: "姚明在NBA效力于哪支球队？", options: ["湖人", "火箭", "公牛", "马刺"], correctIndex: 1 },
+    { questionText: "NBA总冠军奖杯的名字是？", options: ["奥布莱恩杯", "斯特恩杯", "拉塞尔杯", "奈史密斯杯"], correctIndex: 0 },
+    { questionText: "被称为“篮球之神”的是？", options: ["詹姆斯", "乔丹", "魔术师", "伯德"], correctIndex: 1 },
+    { questionText: "单场比赛得分100分的球员是？", options: ["科比", "乔丹", "张伯伦", "杜兰特"], correctIndex: 2 },
+    { questionText: "斯蒂芬·库里最擅长的得分方式是？", options: ["扣篮", "三分球", "勾手", "中投"], correctIndex: 1 },
+    { questionText: "NBA标志（Logo）的原型人物是？", options: ["乔丹", "杰里·韦斯特", "科比", "詹姆斯"], correctIndex: 1 },
+    { questionText: "“指环王”比尔·拉塞尔拥有多少枚总冠军戒指？", options: ["9枚", "10枚", "11枚", "12枚"], correctIndex: 2 },
+    { questionText: "2016年带领骑士队逆转夺冠的球员是？", options: ["欧文", "詹姆斯", "乐福", "韦德"], correctIndex: 1 },
+    { questionText: "麦迪时刻指的是多少秒拿了13分？", options: ["30秒", "35秒", "33秒", "24秒"], correctIndex: 1 },
+    { questionText: "NBA常规赛MVP奖杯现在是以谁命名的？", options: ["迈克尔·乔丹", "卡里姆·贾巴尔", "比尔·拉塞尔", "威尔特·张伯伦"], correctIndex: 0 },
+    { questionText: "以下哪支球队不属于洛杉矶？", options: ["湖人", "快船", "国王", "火花"], correctIndex: 2 },
+    { questionText: "“大鲨鱼”奥尼尔罚球命中率通常？", options: ["很高", "一般", "很低", "百发百中"], correctIndex: 2 },
+    { questionText: "公牛队王朝时期的“铁三角”不包括？", options: ["乔丹", "皮蓬", "罗德曼", "巴克利"], correctIndex: 3 },
+    { questionText: "NBA比赛中共有几节？", options: ["2节", "3节", "4节", "5节"], correctIndex: 2 },
+    { questionText: "扣碎篮板的球员是？", options: ["库里", "奥尼尔", "艾弗森", "纳什"], correctIndex: 1 },
+    { questionText: "灌篮高手中樱木花道的原型通常被认为是？", options: ["乔丹", "罗德曼", "尤因", "巴克利"], correctIndex: 1 }
   ],
   [CategoryType.FOOTBALL]: [
     { questionText: "2022年世界杯冠军是？", options: ["法国", "巴西", "阿根廷", "德国"], correctIndex: 2 },
@@ -122,6 +137,13 @@ export const MOCK_QUESTIONS: Partial<Record<CategoryType | "DEFAULT", Question[]
     { questionText: "“诗仙”是？", options: ["杜甫", "白居易", "李白", "王维"], correctIndex: 2 },
     { questionText: "故宫建于哪个朝代？", options: ["元", "明", "清", "宋"], correctIndex: 1 },
     { questionText: "二战结束于？", options: ["1943", "1944", "1945", "1949"], correctIndex: 2 }
+  ],
+  [CategoryType.TFT]: [
+    { questionText: "“金铲铲之战”中，通常利息的最高金币上限是？", options: ["30金币", "40金币", "50金币", "100金币"], correctIndex: 2 },
+    { questionText: "选秀环节（共享征召）中，谁拥有优先选择权？", options: ["血量最低的玩家", "血量最高的玩家", "金币最多的玩家", "随机决定"], correctIndex: 0 },
+    { questionText: "合成一个2星英雄通常需要几个1星英雄？", options: ["2个", "3个", "4个", "5个"], correctIndex: 1 },
+    { questionText: "提升人口等级主要消耗什么资源？", options: ["点券", "蓝色精萃", "金币", "经验药水"], correctIndex: 2 },
+    { questionText: "装备“无尽之刃”通常提供什么属性？", options: ["法术强度", "攻击力和暴击", "护甲", "魔抗"], correctIndex: 1 }
   ],
   "DEFAULT": [
     { questionText: "暂无该分类专属题目，请联系更新。", options: ["好的", "收到", "OK", "知道了"], correctIndex: 0 },
