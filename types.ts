@@ -28,6 +28,7 @@ export interface Question {
   options: string[];
   correctIndex: number;
   difficulty?: number;
+  explanation?: string;
 }
 
 export interface DanmakuItem {

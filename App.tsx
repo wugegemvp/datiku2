@@ -1,4 +1,4 @@
-import React, { useState, Component, ReactNode } from 'react';
+import React, { Component, useState, ErrorInfo, ReactNode } from 'react';
 import { GridMenu } from './components/GridMenu';
 import { DifficultyMenu } from './components/DifficultyMenu';
 import { LiveGame } from './components/LiveGame';
@@ -22,7 +22,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("React Error:", error, errorInfo);
   }
 
