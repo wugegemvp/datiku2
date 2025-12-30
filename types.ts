@@ -1,3 +1,4 @@
+
 import { ReactNode } from 'react';
 
 export enum CategoryType {
@@ -49,10 +50,11 @@ export interface Character {
   quotes: string[];
 }
 
-export interface DifficultyLevel {
-  id: string;
+export interface GameLevel {
+  id: number;
   label: string;
   color: string;
-  icon: string;
   desc: string;
+  // Added icon property to support DifficultyMenu
+  icon?: ReactNode;
 }
